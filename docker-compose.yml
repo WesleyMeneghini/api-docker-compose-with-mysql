@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-principal
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db-localhost
+  db-localhost:
+    build:
+      context: .
+      dockerfile: mysql/Dockerfile
+    container_name: db-principal
